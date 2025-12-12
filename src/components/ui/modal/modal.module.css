@@ -1,0 +1,91 @@
+.modal {
+  display: none;
+  opacity: 0;
+}
+
+.modal[open] {
+  display: flex;
+  flex-direction: column;
+  min-width: 30%;
+  border-radius: 1rem;
+  border: 1px solid #ccc;
+  padding: 1.5rem;
+  color: #000000af;
+  background-color: oklch(100% 0.00011 271.152 / 0.3);
+  backdrop-filter: blur(15px);
+  opacity: 1;
+  background-image: radial-gradient(circle at 30% 70%, oklch(85.624% 0.049 219.747 / 0.35), transparent 60%);
+  width: 35%;
+  scale: 1;
+  translate: 0 0;
+
+
+  transition: background-color 0.2s ease-in-out,
+    opacity 0.2s ease-in-out,
+    backdrop-filter 0.2s ease-in-out,
+    background-position 1s ease-in-out,
+    width 0.2s ease-in-out,
+    translate 0.2s ease-in-out,
+    scale 0.2s ease-in-out;
+
+  animation: modal-open 1s ease-in-out;
+
+
+  @starting-style {
+    background-color: oklch(from #ffffff l c h / 0.3);
+    backdrop-filter: blur(5px);
+    animation: modal-open 1s ease-in-out;
+    /* width: 10%; */
+    translate: 0 20px;
+    scale: .98;
+    opacity: 0;
+  }
+}
+
+.modalTitle {
+  width: 100%;
+}
+
+.modalCloseButton {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
+  padding: .25rem;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.modalCloseButton:hover {
+  background-color: oklch(58.971% 0.00007 271.152 / 0.289);
+}
+
+
+
+@keyframes modal-open {
+  from {
+    background-position: 30% 70%;
+  }
+
+  to {
+    background-position: 90% 70%;
+  }
+}
+
+.modalContent {
+  margin-top: 1rem;
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modalHeader h3 {
+  margin: 0;
+}
